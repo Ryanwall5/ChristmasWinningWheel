@@ -4,12 +4,10 @@
     ViewBag.Title = "Reindeer Games";
 }
 
-@*<script src="~/scripts/winwheel.js"></script>*@
 <div id="headerjumbo" class="jumbotron">
-    @*<div id="headerjumbo" class="jumbotron">*@
-    @*<div class="container">*@
+   
     <h2 style="text-align:center; color: white; font-size: 75px">Reindeer Games</h2>
-    @*</div>*@
+  
 </div>
 
 
@@ -24,22 +22,7 @@
                 <div class="power_controls">
                     <br />
                     <br />
-                    @*<table class="power" cellpadding="10" cellspacing="0">
-                            <tr>
-                                <th align="center">Power</th>
-                            </tr>
-                            <tr>
-                                <td width="78" align="center" id="pw3" onClick="powerSelected(3);">High</td>
-                            </tr>
-                            <tr>
-                                <td align="center" id="pw2" onClick="powerSelected(2);">Med</td>
-                            </tr>
-                            <tr>
-
-                                <td align="center" id="pw1" onClick="powerSelected(1);">Low</td>
-                        <dialog> </dialog>
-                                </tr>
-                            </table>*@
+                   
                     <br />
                     <button id="spinbutton" class="btn btn-lg btn-danger" onClick="SpinningWheelSound();  theWheel.startAnimation();"> Spin the Wheel </button>
                     <br /><br />
@@ -47,20 +30,18 @@
                 </div>
             </td>
             <td width="438" height="582" class="the_wheel" align="center">
-                @*<td width="1200" height="1000" class="the_wheel" align="center">
-                    <div id="canvasContainer">*@
+             
                 <canvas id='canvas' width='600' height='600'>
-                    @*<canvas id='canvas' width='1200' height='1000'>*@
+                 
                     Canvas not supported, use another browser.
                 </canvas>
-                @*</div>*@
+              
             </td>
         </tr>
     </table>
 </div>
 
-@*Type Your Name Here: <input type="text" id="UsersName" />
-    <button class="btn btn-lg btn-success" onclick=""> Submit </button>*@
+
 
 <div id="headerjumbo" class="container">
 
@@ -112,9 +93,8 @@
         'textFontSize': 18,
         'innerRadius': 20,
         'lineWidth': 8,
-        'outerRadius': 260, // 425
-        //'centerX': 555,    // correctly position the wheel
-        //'centerY': 525,
+        'outerRadius': 260, 
+      
         'textAlignment': 'center',
         'segments':
         [
@@ -156,13 +136,6 @@
         // Call getIndicatedSegment() function to return pointer to the segment pointed to on wheel.
         var winningSegment = theWheel.getIndicatedSegment();
 
-        // Basic alert of the segment text which is the prize name.
-        //var ornamentB = document.getElementById('OrnamentBowling');
-        //ornamentB.play();
-
-
-        //alert(winningSegment.text + "!");
-
         if (winningSegment.text == 'Ornament Bowling') {
             //alert("You Get To Play " + winningSegment.text + "!");
             var ornamentB = document.getElementById('OrnamentBowling');
@@ -201,9 +174,6 @@
         var list = document.getElementById('ulgames');
 
         list.appendChild(item);
-        //var woohoo = document.getElementById('woohoo');
-        //woohoo.play();
-
 
         Reset();
 
@@ -232,8 +202,7 @@
         theWheel.stopAnimation(false);
         theWheel.rotationAngle = 0;
 
-        //theWheel.draw();
-        //drawTriangle();
+    
     }
 
 

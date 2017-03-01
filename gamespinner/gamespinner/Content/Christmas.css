@@ -40,7 +40,7 @@ body {
      background-image: url('http://i.imgur.com/BiSmXaq.png'), url('http://i.imgur.com/XHuy0NJ.png'), url('http://i.imgur.com/okpRxJU.png');
       -webkit-animation: snow 20s linear infinite;
     -moz-animation: snow 20s linear infinite;
-    /*-ms-animation: snow 20s linear infinite;*/
+   
     animation: snow 20s linear infinite;
 }
 
@@ -49,12 +49,6 @@ body {
     color: #A00103;
     background-color: white;
 }
-
-/*#canvas{
-    border:10px dashed;
-    border-color: darkgreen;
-}*/
-
 
 
 #spinbutton {
@@ -91,22 +85,9 @@ h2{
 }
 #headerjumbo{
     background-image:url(146182901.jpg);
-  
-     /*background-image:url(seamless-candy-cane-background.jpg);*/
-}
-#canvasContainer{
-
-    /*background-image: url(christmas_tree_ornament.jpg);
-    background-repeat: no-repeat;  
-    /*background-position: center;*/
-      /*width: 1200px;                   
-    height: 1000px;*/
-
+ 
 }
 
-#homecontainer {
-
-}
 #toplaygames{
      padding: 75px 50px;
 }

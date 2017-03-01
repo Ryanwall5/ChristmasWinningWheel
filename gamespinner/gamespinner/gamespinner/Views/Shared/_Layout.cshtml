@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Ryans Christmas Spinner</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.6.2.js"></script>
+    <script src="~/scripts/winwheel.js"></script>
+    <script src="~/scripts/timelinelite.js"></script>
+    <script src="~/scripts/timelinemax.js"></script>
+    <script src="~/scripts/tweenlite.js"></script>
+    <script src="~/scripts/tweenmax.js"></script>
+    <script src="~/scripts/jquery.gsap.js"></script>
+    <link href="~/content/christmas.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid" style="background-color:darkgreen">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" >
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <br />
+                @Html.ActionLink(" Home", "Index", "Home", new { area = "" }, new { @style= "padding-right: 35px; font-size: 30px; color: white", @class = "navbar-brand glyphicon glyphicon-home" })
+            
+                @Html.ActionLink(" Reindeer-Games", "Index", "ReinDeerGames", new { area = "" }, new { @style = "padding-right: 35px; font-size: 30px; color: white", @class = "navbar-brand glyphicon glyphicon-tree-conifer" })<br />
+                
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container-fluid body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Ryans Game</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>
