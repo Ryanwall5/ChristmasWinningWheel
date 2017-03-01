@@ -1,0 +1,113 @@
+﻿
+
+@-webkit-keyframes snow {
+    0% { background-position: 0px 0px, 0px 0px, 0px 0px }
+    50% { background-color: #b4cfe0 }
+    100% {
+        background-position: 500px 1000px, 400px 400px, 300px 300px;
+        background-color: #6b92b9;
+    }
+}
+@-moz-keyframes snow {
+    0% { background-position: 0px 0px, 0px 0px, 0px 0px }
+    50% { background-color: #b4cfe0 }
+    100% {
+        background-position: 500px 1000px, 400px 400px, 300px 300px;
+        background-color: #6b92b9;
+    }
+}
+@-ms-keyframes snow {
+    0% { background-position: 0px 0px, 0px 0px, 0px 0px }
+    50% { background-color: #b4cfe0 }
+    100% {
+        background-position: 500px 1000px, 400px 400px, 300px 300px;
+        background-color: #6b92b9;
+    }
+}
+@keyframes snow {
+    0% { background-position: 0px 0px, 0px 0px, 0px 0px }
+    50% { background-color: #b4cfe0 }
+    100% {
+        background-position: 500px 1000px, 400px 400px, 300px 300px;
+        background-color: #6b92b9;
+    }
+}
+
+
+
+body {
+    background-color: #6b92b9;
+     background-image: url('http://i.imgur.com/BiSmXaq.png'), url('http://i.imgur.com/XHuy0NJ.png'), url('http://i.imgur.com/okpRxJU.png');
+      -webkit-animation: snow 20s linear infinite;
+    -moz-animation: snow 20s linear infinite;
+    /*-ms-animation: snow 20s linear infinite;*/
+    animation: snow 20s linear infinite;
+}
+
+#ulgames{
+    font-size: 30px;
+    color: #A00103;
+    background-color: white;
+}
+
+/*#canvas{
+    border:10px dashed;
+    border-color: darkgreen;
+}*/
+
+
+
+#spinbutton {
+  display: inline-block;
+  padding: 75px 50px;
+  font-size: 24px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: white;
+  background-color: #275709;
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 15px #999;
+}
+
+#spinbutton:hover {background-color: #A00103}
+
+#spinbutton:active {
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+h2{
+    color:white;
+    font-size: 48px;
+    font-weight: bold;
+    text-decoration:underline;
+}
+#listjumbo{
+    background-color:skyblue;
+
+}
+#headerjumbo{
+    background-image:url(146182901.jpg);
+  
+     /*background-image:url(seamless-candy-cane-background.jpg);*/
+}
+#canvasContainer{
+
+    /*background-image: url(christmas_tree_ornament.jpg);
+    background-repeat: no-repeat;  
+    /*background-position: center;*/
+      /*width: 1200px;                   
+    height: 1000px;*/
+
+}
+
+#homecontainer {
+
+}
+#toplaygames{
+     padding: 75px 50px;
+}
+

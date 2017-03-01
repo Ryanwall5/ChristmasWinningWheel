@@ -1,0 +1,241 @@
+﻿
+<link href="~/content/christmas.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Reindeer Games";
+}
+
+@*<script src="~/scripts/winwheel.js"></script>*@
+<div id="headerjumbo" class="jumbotron">
+    @*<div id="headerjumbo" class="jumbotron">*@
+    @*<div class="container">*@
+    <h2 style="text-align:center; color: white; font-size: 75px">Reindeer Games</h2>
+    @*</div>*@
+</div>
+
+
+
+<br />
+
+<div align="center">
+
+    <table cellpadding="0" cellspacing="0" border="0">
+        <tr>
+            <td>
+                <div class="power_controls">
+                    <br />
+                    <br />
+                    @*<table class="power" cellpadding="10" cellspacing="0">
+                            <tr>
+                                <th align="center">Power</th>
+                            </tr>
+                            <tr>
+                                <td width="78" align="center" id="pw3" onClick="powerSelected(3);">High</td>
+                            </tr>
+                            <tr>
+                                <td align="center" id="pw2" onClick="powerSelected(2);">Med</td>
+                            </tr>
+                            <tr>
+
+                                <td align="center" id="pw1" onClick="powerSelected(1);">Low</td>
+                        <dialog> </dialog>
+                                </tr>
+                            </table>*@
+                    <br />
+                    <button id="spinbutton" class="btn btn-lg btn-danger" onClick="SpinningWheelSound();  theWheel.startAnimation();"> Spin the Wheel </button>
+                    <br /><br />
+
+                </div>
+            </td>
+            <td width="438" height="582" class="the_wheel" align="center">
+                @*<td width="1200" height="1000" class="the_wheel" align="center">
+                    <div id="canvasContainer">*@
+                <canvas id='canvas' width='600' height='600'>
+                    @*<canvas id='canvas' width='1200' height='1000'>*@
+                    Canvas not supported, use another browser.
+                </canvas>
+                @*</div>*@
+            </td>
+        </tr>
+    </table>
+</div>
+
+@*Type Your Name Here: <input type="text" id="UsersName" />
+    <button class="btn btn-lg btn-success" onclick=""> Submit </button>*@
+
+<div id="headerjumbo" class="container">
+
+    <h2 style="font-size: 48px">List Of Games Played</h2><br /> 
+                                                                    
+    <ol id="ulgames"> </ol>
+
+</div>
+
+
+@* These are all of the sounds for the games *@
+<audio id="winsound">
+    <source src="~/Content/Recording.m4a" />
+</audio>
+<audio id="woohoo">
+    <source src="~/Content/woohoo.m4a" />
+</audio>
+<audio id="OrnamentBowling">
+    <source src="~/Content/OrnamentBowling.mp3" />
+</audio>
+<audio id="Audience">
+    <source src="~/Content/AudiencePicksGame.mp3" />
+</audio>
+<audio id="Toss">
+    <source src="~/Content/StockingToss.mp3" />
+</audio>
+<audio id="Challenger">
+    <source src="~/Content/ChallengerPicksGame.mp3" />
+</audio>
+<audio id="TightRope">
+    <source src="~/Content/CandyCaneTightRope.mp3" />
+</audio>
+<audio id="Jingle">
+    <source src="~/Content/JingleAllTheWay.mp3" />
+</audio>
+
+
+
+
+@* This is the Spinning Wheel Audio sound when the wheel is spinning *@
+<audio id="Spinning">
+    <source src="~/Content/Spinning - Prize3.mp3" />
+</audio>
+
+
+<script>
+    var theWheel = new Winwheel({
+        'numSegments': 6,
+        'textFontSize': 18,
+        'innerRadius': 20,
+        'lineWidth': 8,
+        'outerRadius': 260, // 425
+        //'centerX': 555,    // correctly position the wheel
+        //'centerY': 525,
+        'textAlignment': 'center',
+        'segments':
+        [
+            { 'fillStyle': '#A00103', 'strokeStyle': '#FFFFFF', 'textFillStyle': '#FFFFFF', 'text': 'Challenger Picks Game' },
+            { 'fillStyle': '#275709', 'strokeStyle': '#FFFFFF', 'textFillStyle': '#FFFFFF', 'text': 'CandyCane TightRope' },
+            { 'fillStyle': '#A00103', 'strokeStyle': '#FFFFFF', 'textFillStyle': '#FFFFFF', 'text': 'Stocking Toss' },
+            { 'fillStyle': '#275709', 'strokeStyle': '#FFFFFF', 'textFillStyle': '#FFFFFF', 'text': 'Ornament Bowling' },
+            { 'fillStyle': '#A00103', 'strokeStyle': '#FFFFFF', 'textFillStyle': '#FFFFFF', 'text': 'Audience Picks Game' },
+            { 'fillStyle': '#275709', 'strokeStyle': '#FFFFFF', 'textFillStyle': '#FFFFFF', 'text': 'Jingle All the Way' }
+        ],
+
+        //'pointerGuide':        // Turn pointer guide on.
+        //{
+        //    'display': true,
+        //    'strokeStyle': 'white',
+        //    'lineWidth': 3
+        //},
+
+        'animation':
+        {
+            'type': 'spinToStop',
+            'duration': 9,
+            'spins': 30,
+
+            //// Remember to do something after the animation has finished specify callback function.
+            'callbackFinished': 'alertPrize()',
+            //// During the animation need to call the drawTriangle() to re-draw the pointer each frame.
+            'callbackAfter': 'drawTriangle()'
+        }
+    });
+
+    function SpinningWheelSound() {
+        var spinning = document.getElementById('Spinning');
+        spinning.play();
+    }
+
+    // This function called after the spin animation has stopped.
+    function alertPrize() {
+        // Call getIndicatedSegment() function to return pointer to the segment pointed to on wheel.
+        var winningSegment = theWheel.getIndicatedSegment();
+
+        // Basic alert of the segment text which is the prize name.
+        //var ornamentB = document.getElementById('OrnamentBowling');
+        //ornamentB.play();
+
+
+        //alert(winningSegment.text + "!");
+
+        if (winningSegment.text == 'Ornament Bowling') {
+            //alert("You Get To Play " + winningSegment.text + "!");
+            var ornamentB = document.getElementById('OrnamentBowling');
+            ornamentB.play();
+        }
+        else if (winningSegment.text == 'Challenger Picks Game') {
+            //alert(winningSegment.text + "!");
+            var challenger = document.getElementById('Challenger');
+            challenger.play();
+        }
+        else if (winningSegment.text == 'Stocking Toss') {
+            //alert("You Get To Play " + winningSegment.text + "!");
+            var StockingToss = document.getElementById('Toss');
+            StockingToss.play();
+        }
+        else if (winningSegment.text == 'Audience Picks Game') {
+            //alert(winningSegment.text + "!");
+            var audience = document.getElementById('Audience');
+            audience.play();
+        }
+        else if (winningSegment.text == 'CandyCane TightRope') {
+            //alert("You Get To Play " + winningSegment.text + "!");
+            var tightrope = document.getElementById('TightRope');
+            tightrope.play();
+        }
+        else if (winningSegment.text == 'Jingle All the Way') {
+            //alert("You Get To Play " + winningSegment.text + "!");
+            var JingleAll = document.getElementById('Jingle');
+            JingleAll.play();
+        }
+
+        var item = document.createElement('li');
+
+        item.appendChild(document.createTextNode(winningSegment.text));
+
+        var list = document.getElementById('ulgames');
+
+        list.appendChild(item);
+        //var woohoo = document.getElementById('woohoo');
+        //woohoo.play();
+
+
+        Reset();
+
+    }
+
+    // Function to draw pointer using code (like in a previous tutorial).
+    drawTriangle();
+
+    function drawTriangle() {
+         //Get the canvas context the wheel uses.
+        var ctx = theWheel.ctx;
+
+        ctx.strokeStyle = 'Green';     // Set line colour.
+        ctx.fillStyle = '#A00103';     // Set fill colour.
+        ctx.lineWidth   = 6;
+        ctx.beginPath();              // Begin path.
+        ctx.moveTo(340, 0);           // Move to initial position.
+        ctx.lineTo(300, 40);           // Draw lines to make the shape.
+        ctx.lineTo(260, 0);
+        ctx.lineTo(340, 0);
+        ctx.stroke();                 // Complete the path by stroking (draw lines).
+        ctx.fill();                   // Then fill.
+    }
+
+    function Reset() {
+        theWheel.stopAnimation(false);
+        theWheel.rotationAngle = 0;
+
+        //theWheel.draw();
+        //drawTriangle();
+    }
+
+
+
+</script>
